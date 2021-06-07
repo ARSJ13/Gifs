@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import SuiVue from 'semantic-ui-vue'
+import 'semantic-ui-vue/dist/umd/semantic-ui-vue.min.js'
+import 'semantic-ui-css/semantic.min.css'
+
+Vue.use(SuiVue)
 
 Vue.config.productionTip = false
 
