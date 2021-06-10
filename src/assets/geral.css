@@ -2,16 +2,11 @@
   text-align: center;
 }
 .ui.card{
-  max-height: 500px;
   height: 100%;
 }
 .ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
   height: 300px;
 }
 .ui.top.attached.label+[class*="right floated"]+*, .ui.top.attached.label:first-child+:not(.attached){
-  margin-top: 5rem !important;
-}
-
-@media  screen and (max-width: 1000px) {
-  
+  margin-top: 0px !important;
 }

@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import searchGif from './components/search-gif.vue'
+import SearchGif from './components/SearchGif.vue'
 export default {
   name: 'App',
   components: {
-    searchGif
+    SearchGif
   },
   created () {
     this.$store.dispatch('listGifs')
@@ -24,5 +24,11 @@ export default {
     background: orange repeat;
     width: 100vw;
     padding-bottom: 5rem;
+  }
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
+  }
+  .fade-enter-active, .fade-leave-active{
+    transition: all 1000ms;
   }
 </style>
