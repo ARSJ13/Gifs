@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="title" center>Minha lista</h2>
-    <div v-if="!lista" center is="sui-divider" horizontal>
+    <div v-if="!lista || lista.length === 0" center is="sui-divider" horizontal>
       <h4 is="sui-header">
         <i class="close icon"></i>
         Nenhuma gif selecionada.
@@ -21,29 +21,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import GifCard from './GifCard.vue'
 export default {
   name: 'Lista',
   components: {
     GifCard
   },
-  data() {
-    return {
-      lista: [],
-    }
+  computed: {
+    ...mapState({
+      lista: state => state.list
+    })
   },
   created() {
-    this.updateLista()
-    console.log(this.lista)
-  },
-  updated() {
     this.updateLista()
   },
   methods: {
     updateLista() {
       const listStorage = localStorage.getItem('list')
       const listJson = JSON.parse(listStorage)
-      this.lista = listJson
+      this.$store.commit('UPDATE_LIST', listJson)
     }
   }
 }

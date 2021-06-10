@@ -23,7 +23,6 @@ export default {
   methods: {
     showModal() {
       this.toggle = !this.toggle
-      console.log(this.toggle)
     },
     eventModal(e) {
       this.toggle = e.modal

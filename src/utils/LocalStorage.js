@@ -1,3 +1,4 @@
+import store from '../store'
 export default class LocalStorage {
   constructor (gif) {
     this.gif = gif
@@ -15,20 +16,21 @@ export default class LocalStorage {
         const result = []
         result.push(gifAdd)
         const gifString = JSON.stringify(result)
-        console.log(gifString)
         localStorage.setItem(info, gifString)
+        store.commit('UPDATE_LIST', result)
         return
     } else {
         const listJson = localStorage.getItem(info)
         const jsonList = JSON.parse(listJson)
-        console.log(jsonList)
         const validation = jsonList.every(item => {
           return item.id !== this.gif.id
         })
         if (validation === true) {
           jsonList.push(gifAdd)
           const list = JSON.stringify(jsonList)
-          return localStorage.setItem(info, list)
+          localStorage.setItem(info, list)
+          store.commit('UPDATE_LIST', jsonList)
+          return
         }
       return
     }
@@ -42,5 +44,6 @@ export default class LocalStorage {
     })
     const resultString = JSON.stringify(gifSelected)
     localStorage.setItem(info, resultString)
+    store.commit('UPDATE_LIST', gifSelected)
   }
 }

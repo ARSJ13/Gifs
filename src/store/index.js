@@ -8,6 +8,7 @@ export default new Vuex.Store({
     gifs: '',
     gif: '',
     totalSearchGif: '',
+    list:'',
     word: '',
     page: 0,
     totalPage: ''
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     UPDATE_PAGE (state, payload) {
       state.page = payload
+    },
+    UPDATE_LIST (state, payload) {
+      state.list = payload
     },
     UPDATE_WORD (state, payload) {
       state.word = payload
